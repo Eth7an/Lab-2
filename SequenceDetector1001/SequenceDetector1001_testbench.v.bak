@@ -1,0 +1,26 @@
+module SequenceDetector1001_testbench();
+	
+	reg clk, rst, testInput;
+	wire primeFound;
+	
+	SequenceDetector1001 dut (clk, rst, testInput, primeFound);
+
+	initial
+		testInput <= 1'b0;
+	
+	always begin
+		#10 
+		testInput <= 1'b1;
+		#10 
+		testInput <= 1'b0;
+		#10 
+		testInput <= 1'b0;
+		#10 
+		testInput <= 1'b1;
+	end
+	
+	initial begin
+		#50 $stop;
+	end
+
+endmodule
